@@ -23,9 +23,6 @@ print("Missing values:\n", X.isnull().sum())
 # Fill any missing values with the mode of the column
 X.fillna(X.mode().iloc[0], inplace=True)
 
-# Ensure all data types are correct (convert to integers if needed)
-#X = X.astype(int)
-
 # Split data into training and validation sets
 train_X, val_X, train_y, val_y = train_test_split(X, y, test_size=0.2, random_state=0)
 
@@ -87,6 +84,6 @@ val_predictions = studentPerformanceModel.predict(val_X)
 # Print minimum validation loss
 print("Min validation loss: {}".format(history_df["val_loss"].min()))
 
-# Optionally, print the predictions for the validation set
+# Print the predictions for the validation set
 print("Predictions for validation set: ", val_predictions)
 
